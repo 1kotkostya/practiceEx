@@ -1,0 +1,364 @@
+@use "variables";
+
+.button {
+  @extend .inter-semibold;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+
+  &__primary {
+    background-color: variables.$button_main;
+    border: 2px solid variables.$button_main;
+    color: variables.$white;
+
+    &:hover {
+      background: rgba(0, 86, 216, 1);
+      border: 2px solid rgba(0, 86, 216, 1)
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(0, 86, 216, 0.3);
+    }
+
+    &-var {
+      border: 2px solid variables.$white;
+      background-color: variables.$white;
+      color: variables.$black;
+
+      &:hover {
+        border: 2px solid variables.$white;
+        background-color: variables.$black;
+        color: variables.$white;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(138, 185, 255, 1);
+      }
+    }
+  }
+
+  &__secondary {
+    border: 2px solid variables.$black;
+    background-color: variables.$white;
+    color: variables.$black;
+
+    &:hover {
+      border: 2px solid variables.$black;
+      background-color: variables.$black;
+      color: variables.$white;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(0, 86, 216, 0.3);
+    }
+
+    &-var {
+      border: 2px solid variables.$white;
+      background-color: variables.$black;
+      color: variables.$white;
+
+      &:hover {
+        border: 2px solid variables.$white;
+        background-color: variables.$white;
+        color: variables.$black;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(138, 185, 255, 1);
+      }
+    }
+  }
+}
+
+.big-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 416px;
+  border-radius: 12px;
+  padding: 16px;
+  height: 480px;
+  background: url("/image/big_card_1.jpg") no-repeat center / cover;
+  @media (min-width: 568px) {
+    padding: 32px;
+  }
+
+  &__name {
+    margin-top: auto;
+    max-width: 288px;
+    color: variables.$white;
+    font-size: 24px;
+    @extend .inter-bold;
+  }
+
+  &__title {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+    max-width: 288px;
+    color: variables.$white;
+    font-size: 16px;
+    @extend .inter-regular;
+    transition: opacity 1s ease, max-height 1s ease;
+  }
+
+  .collapse-icon {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    @media (min-width: 568px) {
+      bottom: 32px;
+      right: 32px;
+    }
+  }
+
+  &:hover, &:active {
+    .link-block-var {
+      opacity: 1;
+      max-height: 100px;
+      transition: opacity 1s ease, max-height 1s ease;
+    }
+
+    .big-card__title {
+      margin-bottom: 24px;
+      margin-top: 8px;
+      opacity: 1;
+      max-height: 100px;
+      overflow: hidden;
+      transition: opacity 1s ease, max-height 1s ease;
+    }
+
+    .collapse-icon {
+      background: rgba(20, 110, 245, 1);
+
+      &:before, &:after {
+        background: variables.$white;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+
+  .link-block-var {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 1s ease, max-height 1s ease;
+  }
+}
+
+.collapse-icon {
+  cursor: pointer;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background: rgba(variables.$black, 0.3);
+  border-radius: 50%;
+
+  &:before, &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    width: 2px;
+    height: 12px;
+    background: variables.$black;
+    display: block;
+  }
+
+  &:after {
+    width: 12px;
+    height: 2px;
+  }
+
+  &-var {
+    &:before, &:after {
+      background: variables.$white;
+    }
+  }
+
+  &-var {
+    @extend .collapse-icon;
+    background: rgba(variables.$white, 0.3);
+
+    &:before, &:after {
+      background: variables.$white;
+    }
+  }
+}
+
+.link-block {
+  cursor: pointer;
+  margin-right: auto;
+  position: relative;
+  color: variables.$black;
+  display: inline-block;
+
+  &:before {
+    position: absolute;
+    top: -2px;
+    right: -28px;
+    display: block;
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: url(/image/arrow_1.svg) no-repeat;
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+    color: variables.$black;
+    font-size: 16px;
+    @extend .inter-semibold;
+
+    &:before {
+      position: absolute;
+      content: "";
+      display: block;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: variables.$black;
+      opacity: 0.3;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-var {
+    @extend .link-block;
+
+    &:before {
+      background: url(/image/arrow_2.svg) no-repeat;
+    }
+  }
+}
+
+.arrow-white {
+  a {
+    color: variables.$white;
+  }
+
+  &:before {
+    background: url(/image/arrow_1_white.svg) no-repeat;
+  }
+}
+
+.arrow-white-var {
+  a {
+    color: variables.$white;
+  }
+
+  &:before {
+    background: url(/image/arrow_2_white.svg) no-repeat;
+  }
+}
+
+.small-card {
+  position: relative;
+  max-width: 344px;
+  height: 364px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 24px;
+  @media (min-width: 568px) {
+    padding: 32px;
+  }
+
+  &:hover, &:active {
+    .link-block {
+      margin-top: 24px;
+      opacity: 1;
+      max-height: 100px;
+      transition: opacity 1s ease, max-height 1s ease;
+    }
+  }
+
+  .link-block {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 1s ease, max-height 1s ease;
+  }
+
+  & * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__logo {
+    margin-right: auto;
+    margin-bottom: auto;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  &__text {
+    @extend .inter-bold;
+    line-height: 120%;
+    font-size: 56px;
+  }
+
+  &__title {
+    @extend .inter-regular;
+    line-height: 150%;
+    font-size: 16px;
+  }
+
+  &__type1 {
+    background: rgba(175, 150, 246, 1);
+
+    .small-card__text, .small-card__title {
+      color: rgba(34, 34, 34, 1);
+    }
+  }
+
+  &__type2 {
+    .small-card__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      border-radius: 12px;
+    }
+
+    .small-card__text, .small-card__title {
+      color: variables.$white;
+    }
+  }
+
+  &__type3 {
+    background: variables.$white;
+
+    .small-card__logo {
+      height: 20px;
+    }
+
+    .small-card__text {
+      @extend .inter-regular;
+      font-size: 20px;
+      margin-bottom: 32px;
+    }
+
+    .small-card__title {
+      @extend .inter-regular;
+      font-size: 16px;
+
+      b {
+        @extend .inter-semibold;
+        font-size: 18px;
+      }
+    }
+  }
+}
