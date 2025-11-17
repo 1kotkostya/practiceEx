@@ -1,0 +1,98 @@
+@use "variables";
+
+.how {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 16px 0;
+  @media screen and (min-width: 1024px) {
+    padding: 120px 64px 0;
+  }
+  &__title {
+    margin-top: 16px;
+    @extend .inter-regular;
+    font-size: 18px;
+    text-align: center;
+  }
+  .link-block {
+    margin: 32px auto 0;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 32px;
+    }
+  }
+  &__item {
+    border-top: 2px solid #EEEEEE;
+    margin-top: 32px;
+    padding-top: 32px;
+    @media screen and (min-width: 1024px) {
+      position: relative;
+      padding-top: 24px;
+      opacity: .5;
+    }
+
+    &-name {
+      @extend .inter-bold;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    &-title {
+      @extend .inter-regular;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+    &-img {
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
+      img {
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+
+  &__images {
+    display: none;
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      justify-content: center;
+    }
+    &-item {
+      display: none;
+      justify-content: center;
+      margin-top: 52px;
+      max-width: 1320px;
+      img {
+        width: 100%;
+      }
+    }
+    .active {
+      display: flex;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .how-active {
+      opacity: 1;
+      &:before {
+        position: absolute;
+        top: -2px;
+        left: 0;
+        content: "";
+        width: 154px;
+        height: 2px;
+        background: variables.$black;
+      }
+    }
+  }
+}

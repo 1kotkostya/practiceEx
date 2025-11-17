@@ -1,0 +1,58 @@
+@use "variables";
+
+.faq {
+  background: #EEEEEE;
+  padding: 60px 16px;
+  @media screen and (min-width: 1024px) {
+    padding: 120px 288px;
+  }
+  h2 {
+    text-align: left;
+    margin-bottom: 52px;
+  }
+  &__item {
+    border-top: 1px solid #CCCCCC;
+    padding: 24px 0;
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      .collapse-icon-var {
+        background: rgba(variables.$black, 0.3);
+      }
+      .collapse-icon-active {
+        background: rgba(20, 110, 245, 1);
+
+        &:before, &:after {
+          background: variables.$white;
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+    &-title {
+      @extend .inter-bold;
+      font-size: 20px;
+      line-height: 140%;
+      max-width: 280px;
+    }
+    &-text {
+      display: none;
+      @extend .inter-regular;
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+  &__item-active {
+    .faq__item-header {
+      margin-bottom: 24px;
+    }
+    .faq__item-text {
+      display: block;
+      transition: height 0.3s ease;
+    }
+  }
+}

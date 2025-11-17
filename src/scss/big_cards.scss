@@ -1,0 +1,34 @@
+@use "variables";
+
+.big-cards-block {
+  padding: 60px 16px 0;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 1024px) {
+    padding: 120px 64px 0;
+  }
+}
+
+.big-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  > * {
+    margin-top: 16px
+  }
+
+  > *:nth-child(2) {
+    background: url("/image/big_card_2.png") no-repeat center / cover;
+  }
+
+  > *:nth-child(3) {
+    background: url("/image/big_card_3.png") no-repeat center / cover;
+  }
+}

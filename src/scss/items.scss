@@ -38,9 +38,9 @@
   }
 
   &__secondary {
-    border: 2px solid variables.$black;
-    background-color: variables.$white;
-    color: variables.$black;
+    border: 2px solid variables.$white;
+    background-color:unset;
+    color: variables.$white;
 
     &:hover {
       border: 2px solid variables.$black;
@@ -74,6 +74,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 416px;
   border-radius: 12px;
   padding: 16px;

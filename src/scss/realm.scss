@@ -1,0 +1,48 @@
+@use "variables";
+
+.realm {
+  border-radius: 12px;
+  margin: 0 16px;
+  padding: 60px 24px;
+  background: url("./image/realm.png") no-repeat center / cover;
+  @media screen and (min-width: 1024px) {
+    background: url("./image/realm_web.png") no-repeat center / cover;
+    padding: 140px 80px;
+    margin: 0 64px;
+  }
+  &__name {
+    @extend .inter-bold;
+    color: variables.$white;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 16px;
+    @media screen and (min-width: 1024px) {
+      max-width: 448px;
+      text-align: left;
+    }
+  }
+  &__title {
+    @extend .inter-regular;
+    font-size: 18px;
+    color: variables.$white;
+    text-align: center;
+    margin-bottom: 32px;
+    line-height: 150%;
+    @media screen and (min-width: 1024px) {
+      max-width: 448px;
+      text-align: left;
+    }
+  }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    button {
+      width: 100%;
+      max-width: 412px;
+    }
+    @media screen and (min-width: 1024px) {
+      max-width: 200px;
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@use "variables";
+.build {
+  padding: 60px 16px;
+  @media screen and (min-width: 1024px) {
+    padding: 120px 64px;
+  }
+  &__title {
+    @extend .inter-regular;
+    font-size: 18px;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    color: #222222;
+  }
+  &__items {
+    margin-top: 32px;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @media screen and (min-width: 1024px) {
+      overflow: unset;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  &__item {
+    padding: 24px;
+    border-radius: 12px;
+    background: #EEEEEE;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    @media screen and (min-width: 1024px) {
+      flex: unset;
+    }
+    &-name {
+      @extend .inter-bold;
+      font-size: 24px;
+      margin-top: 32px;
+    }
+    &-title {
+      @extend .inter-regular;
+      margin: 12px 0 0;
+      font-size: 18px;
+      color: #222222;
+    }
+    &:hover, &:active {
+      background: #146EF5;
+      .build__item-name, .build__item-title {
+        color: variables.$white;
+      }
+    }
+  }
+
+  &__buttons {
+    margin-top: 32px;
+    display: flex;
+    > *:nth-child(2) {
+      margin-left: 16px;
+      img {
+        transform: rotate(180deg);
+      }
+    }
+    @media screen and (min-width: 1024px) {
+      display: none
+    }
+  }
+  &__btn {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: variables.$black;
+    border: none;
+  }
+}

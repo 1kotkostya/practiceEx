@@ -1,0 +1,108 @@
+@use "variables";
+%generateItem {
+
+  @media screen and (min-width: 1024px) {
+    .generate__img {
+      display: block;
+    }
+
+    .generate__item-header {
+      position: relative;
+      opacity: 1;
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        height: 1px;
+        width: 154px;
+        background: variables.$black;
+      }
+    }
+
+
+    .generate__item-title {
+      display: block;
+    }
+  }
+}
+
+
+.generate {
+  position: relative;
+  padding: 60px 16px;
+  @media screen and (min-width: 1024px) {
+    height: 880px;
+    padding: 120px 64px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    @extend .inter-bold;
+    font-size: 32px;
+    @media screen and (min-width: 1024px) {
+      margin-bottom: auto;
+      font-size: 40px;
+      max-width: 528px;
+    }
+  }
+
+  &__item {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #EEEEEE;
+    @media screen and (min-width: 1024px) {
+      cursor: pointer;
+      padding-top: 0;
+      margin-top: 0;
+      border: unset;
+      width: 40%;
+    }
+  }
+
+  &__item-header {
+    @extend .inter-bold;
+    font-size: 20px;
+    @media screen and (min-width: 1024px) {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #EEEEEE;
+      color: #222222;
+      opacity: .5;
+    }
+  }
+
+  &__item-title {
+    @extend .inter-regular;
+    font-size: 18px;
+    margin: 16px 0 24px;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    @media screen and (min-width: 1024px) {
+      display: none;
+      position: absolute;
+      top: 120px;
+      right: 64px;
+      max-width: calc(60% - 96px);
+      height: 640px;
+    }
+
+    img {
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__item-active {
+    transition: opacity 0.3s ease;
+    @extend %generateItem
+  }
+}

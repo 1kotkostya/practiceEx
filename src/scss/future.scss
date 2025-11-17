@@ -1,0 +1,86 @@
+@use "variables";
+.future {
+  position: relative;
+  padding: 60px 16px;
+  @media screen and (min-width: 1024px) {
+    padding: 120px 64px;
+  }
+  h2 {
+    @media screen and (min-width: 1024px) {
+      text-align: left;
+
+    }
+  }
+  &-name {
+    @extend .inter-bold;
+    font-size: 24px;
+    margin-top: 32px;
+  }
+  &__title {
+    @extend .inter-regular;
+    margin: 12px 0 0;
+    font-size: 18px;
+    color: #222222;
+    line-height: 150%;
+    text-align: center;
+    @media screen and (min-width: 1024px) {
+      text-align: left;
+      max-width: 936px;
+    }
+  }
+  &__items {
+    margin-top: 32px;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__item {
+    border-radius: 12px;
+    background: url("./image/future_card.png") no-repeat center / cover;
+    padding: 24px;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    @media screen and (min-width: 1024px) {
+      flex: 0 0 416px;
+    }
+    &-main {
+      background: variables.$white;
+      border-radius: 8px;
+      padding: 18px 16px;
+    }
+    &-name {
+      @extend .inter-semibold;
+      padding: 40px 0 56px;
+    }
+  }
+  &__buttons {
+    margin-top: 32px;
+    display: flex;
+    > *:nth-child(2) {
+      margin-left: 16px;
+      img {
+        transform: rotate(180deg);
+      }
+    }
+    @media screen and (min-width: 1024px) {
+      position: absolute;
+      top: 150px;
+      right: 64px;
+    }
+  }
+  &__btn {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: variables.$black;
+    border: none;
+  }
+}
